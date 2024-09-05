@@ -62,7 +62,7 @@ func main() {
 
 	e := echo.New()
 	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "qweqwe")
+		return c.String(http.StatusOK, "Welcome to the echo server")
 	})
 
 	e.GET("/start-job", s.startScheduledJobHandler)

@@ -38,3 +38,32 @@ docker container create --name go-echo-container -e PORT=8080 -e INSTANCE_ID="go
 | | +--------- Day of month (1 - 31)
 | +----------- Hour (0 - 23)
 +------------- Minute (0 - 59)
+
+
+
+
+<!-- Upload to gcp registry image -->
+docker build -t [HOSTNAME | like gcr.io]/[PROJECT-ID | go-backend-273518]/[IMAGE | example-app] .
+docker build -t asia.gcr.io/trusty-mantra-434710-n9/go-echo-image .
+docker push asia.gcr.io/trusty-mantra-434710-n9/go-echo-image
+
+docker build -t \ asia-docker.pkg.dev/trusty-mantra-434710-n9/go-echo-repo/go-echo-image:v1 \ .
+docker push asia-docker.pkg.dev/trusty-mantra-434710-n9/go-echo-repo/go-echo-image:v1
+
+docker tag Nama-image gcr.io/nama-project-digcp/Nama-image
+docker push gcr.io/nama-project/name-image
+
+docker tag asdasd gcr.io/trusty-mantra-434710/asdasd
+docker push gcr.io/trusty-mantra-434710-n9/asdasd
+
+gcloud run deploy asdasd-service --image asdasd-a --platform managed --region asia-southeast2 --allow-unauthenticated --port 8080
+
+
+
+
+
+gcloud auth login
+gcloud config set project trusty-mantra-434710-n9
+gcloud auth configure-docker
+docker build --platform linux/amd64 -t gcr.io/trusty-mantra-434710-n9/qweqwe .
+docker push gcr.io/trusty-mantra-434710-n9/qweqwe
